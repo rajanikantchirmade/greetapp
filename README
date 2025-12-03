@@ -1,0 +1,5 @@
+  podman  build -t greet:1.0 greed/container/.
+  podman  build -t greet:1.0 greet/container/.
+  podman run -d --name gateway --ip=10.88.0.2 -p 8081:8081 localhost/gateway:1.0
+  podman run -d --name greet --ip=10.88.0.3 -p 9090:9090 localhost/greet:1.0
+  curl http://10.88.0.2:8081/greet?name=rajanikant

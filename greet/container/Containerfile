@@ -1,0 +1,11 @@
+# Use Red Hat Universal Base Image 9.0
+FROM registry.access.redhat.com/ubi9/ubi:latest
+
+# Maintainer label
+LABEL maintainer="rajanikantchirmade@gmail.com"
+
+ADD ./greet_server /usr/bin
+
+EXPOSE 9090
+
+ENTRYPOINT /usr/bin/greet_server

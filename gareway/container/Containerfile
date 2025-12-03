@@ -1,0 +1,18 @@
+# Use Red Hat Universal Base Image 9.0
+FROM registry.access.redhat.com/ubi9/ubi:latest
+
+# Maintainer label
+LABEL maintainer="rajanikantchirmade@gmail.com"
+
+# Install nginx
+RUN dnf install -y nginx && \
+    dnf clean all && \
+    rm -rf /var/cache/dnf
+
+COPY ./nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 8081
+
+# Start nginx in the foreground
+CMD ["nginx", "-g", "daemon off;"]
+
